@@ -1,4 +1,4 @@
-////---------Cashing default elements//---------
+////---------Cashing default elements-----------
 const body = document.querySelector("body");
 const container = document.querySelector(".container");
 const twoThree = document.querySelector(".twoThree");
@@ -13,30 +13,30 @@ const buttonRadial = document.querySelector(".buttonRadial");
 
 
 //---------Cashing secondary buttons---------
-//---------Cashing colorPickers---------
-let input1 = document.createElement("input");
+//-----------Cashing colorPickers------------
+const input1 = document.createElement("input");
 input1.setAttribute("type","color");
 input1.setAttribute("value","#82dce8");
 input1.className = "colorPicker";
-let input2 = document.createElement("input");
+const input2 = document.createElement("input");
 input2.setAttribute("type","color");
 input2.setAttribute("value","#f09347");
 input2.className = "colorPicker";
-let input3 = document.createElement("input");
+const input3 = document.createElement("input");
 input3.setAttribute("type","color");
 input3.setAttribute("value","#fd8aff");
 input3.className = "colorPicker";
-//---------Cashing randomizer---------
+//----------Cashing randomizer-----------
 const randomizer = document.createElement("button");
 randomizer.className = "randomizer";
-//---------Cashing hexReference---------
+//----------Cashing hexReference-----------
 const hexReferences = document.querySelector(".hexReferences");
-let hexFirstColor = document.createElement("h5");
-let hexSecondColor = document.createElement("h5");
-let hexThirdColor = document.createElement("h5");
+const hexFirstColor = document.createElement("h5");
+const hexSecondColor = document.createElement("h5");
+const hexThirdColor = document.createElement("h5");
 
 
-//---------Creating pickers & randomizer---------
+//----Creating pickers & randomizer----
 const createDoubleSetButtons = () => {  
 	twoThree.appendChild(input1);
 	twoThree.appendChild(input2);
@@ -61,12 +61,17 @@ const createRandomizer = () => {
 }
 
 
-//---------Rendering background---------
-let generateColor = () => {
+//----Rendering background without dark shades----
+const generateColor = () => {
 	let symbols = "0123456789abcdef"
+	let symbolsNoDark = "4567890abcdef"
 	let color = "#"; 
-	for(let i =0; i<6; i++){
-		color = color + symbols[Math.floor(Math.random()*16)];} 
+	for(let i =0; i<2; i++){
+		color = color + symbolsNoDark[Math.floor(Math.random()*13)];
+	} 
+	for(let i =0; i<4; i++){
+	color = color + symbols[Math.floor(Math.random()*16)];
+	} 	
 	return color;
 }
 
@@ -100,24 +105,52 @@ const renderLinearBackground = () => {
 	createHexReference(); 
 }
 
+
+//----Fancy multi-ellipse radial gradient----
 const renderRadialBackground = () => {
 	if (twoThree.children.length > 2){
-	body.style.background = "radial-gradient(circle at center,"  
+	body.style.background = "radial-gradient(ellipse at top,"  
 	+input1.value
-	+" 0," 
+	+", transparent)," 
+	+"radial-gradient(ellipse at bottom,"
 	+input2.value 
-	+" 35%,"
+	+", transparent)," 
+	+"radial-gradient(ellipse at left,"
 	+input3.value	
-	+" 100%)";
+	+", transparent)," 
+	+"radial-gradient(ellipse at right,"
+	+input3.value	
+	+", transparent)";
 	}
-	else{body.style.background = "radial-gradient(circle at center,"  
+	else{body.style.background = "radial-gradient(ellipse at top,"  
 	+input1.value
-	+" 0," 
+	+", transparent)," 
+	+"radial-gradient(ellipse at bottom,"
 	+input2.value 
-	+" 100%";
+	+", transparent)";
 	}
 	createHexReference(); 
 }
+
+//----simple circle at center radial gradient----
+// const renderRadialBackground = () => {
+// 	if (twoThree.children.length > 2){
+// 	body.style.background = "radial-gradient(circle at center,"  
+// 	+input1.value
+// 	+" 0," 
+// 	+input2.value 
+// 	+" 60%,"
+// 	+input3.value	
+// 	+" 100%)";
+// 	}
+// 	else{body.style.background = "radial-gradient(circle at center,"  
+// 	+input1.value
+// 	+" 0," 
+// 	+input2.value 
+// 	+" 100%";
+// 	}
+// 	createHexReference(); 
+// }
 
 const renderLinearOrRadialBackground = () => {
 	if (buttonRadial.getAttribute("name") === "active"){
@@ -125,7 +158,7 @@ const renderLinearOrRadialBackground = () => {
 	}else{renderLinearBackground()
 	}
 }
-//---------Setting tooglers for Linear or Radial rendering//---------
+//----Setting togglers for Linear or Radial rendering----
 const activateLinearRendering = () => {
 	buttonLinear.setAttribute("name", "active");
 	buttonLinear.classList.add("buttonLinearFocus");
@@ -143,7 +176,7 @@ const activateRadialRendering = () => {
 	}
 }
 
-//---------Setting CLICKABLE hex text at the bottom section//---------
+//----Setting CLICKABLE hex text at the bottom section----
 const createHexReference = () => {
 	hexReferences.appendChild(hexFirstColor);
 	hexFirstColor.textContent = input1.value;
@@ -154,35 +187,28 @@ const createHexReference = () => {
 		hexThirdColor.textContent = input3.value;
 	}
 }
-const copyHexFirstColor = () => {
-  navigator.clipboard.writeText(hexFirstColor.textContent);
-  popupHexCopied();
-}
-const copyHexSecondColor = () => {
-  navigator.clipboard.writeText(hexSecondColor.textContent);
-  popupHexCopied();
-}
-const copyHexThirdColor = () => {
-  navigator.clipboard.writeText(hexThirdColor.textContent);
-  popupHexCopied();
+
+const copyHexColor = (event) =>{
+	let hexText = event.target;
+	 navigator.clipboard.writeText(hexText.textContent+" ");
+	 createPopUpHex();
 }
 
-const popupHexCopied = () => {
-	let popupHexCopiedText = document.createElement("h6");
-	container.appendChild(popupHexCopiedText);
-	popupHexCopiedText.classList.add("popupHexCopied");
-	popupHexCopiedText.textContent = "Copied!";
-	removeExtraHexCopied();
+const createPopUpHex = () => {
+	let createPopUpHexText = document.createElement("h6");
+	container.appendChild(createPopUpHexText);
+	createPopUpHexText.classList.add("createPopUpHex");
+	createPopUpHexText.textContent = "Copied!";
+	setTimeout(removeHEX, 1000);
 }
 
-const removeExtraHexCopied = () => {
-	let removeExtraHexCopied = document.querySelectorAll(".popupHexCopied");
-	if (removeExtraHexCopied.length > 1){
-		container.removeChild(popupHexCopiedText);
-	}
-	console.log(removeExtraHexCopied);
+const removeHEX = () =>{
+Array.from(document.getElementsByClassName("createPopUpHex")).forEach(
+	(element, index, array) => {
+	element.remove();
 }
-
+);
+}
 
 //---------Configuring Randomizer---------
 const launchRandomizer = () => {
@@ -196,13 +222,9 @@ buttonThree.addEventListener("click", createTripleSetButtons);
 buttonLinear.addEventListener("click", activateLinearRendering);
 buttonRadial.addEventListener("click", activateRadialRendering);
 
-
 //---------Listening to secondary buttons---------
 input1.addEventListener("input", renderLinearOrRadialBackground);
 input2.addEventListener("input", renderLinearOrRadialBackground);
 input3.addEventListener("input", renderLinearOrRadialBackground);
 randomizer.addEventListener("click", launchRandomizer);
-
-hexFirstColor.addEventListener("click", copyHexFirstColor); 
-hexSecondColor.addEventListener("click", copyHexSecondColor);
-hexThirdColor.addEventListener("click", copyHexThirdColor);
+hexReferences.addEventListener("click", copyHexColor);
