@@ -1,0 +1,443 @@
+/*//////// GENERAL SETTINGS ////////*/
+html{
+	height: 100%;
+}
+
+body{
+	font: 'Raleway', sans-serif;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background: linear-gradient(to right, #82dce8, #f09347);
+}
+
+header{
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h1{
+	margin: 0.5em 0 0 0;
+	font-size: 2em;
+}
+h2{
+	margin: 0.5em 0 0 0;
+}
+
+.container{
+	width: 100%;
+	height: 100%;
+	padding: 0.3em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.5em;
+}
+
+.buttons{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+h4{
+	margin: 4.8em 0 0.3em 0;
+	letter-spacing: normal;
+	text-transform: none;
+	font-size: 2.7em;
+}
+
+
+/*//////// LEFT MENU BAR ////////*/
+.defaultMenu1{
+	width: 13em;
+	height: 9em;
+	margin: 1.5em 3em;
+	padding: 1.85em 0;
+	border: 0.2em solid #566054;
+	border-radius: 10em;
+	box-shadow: 0 0.2em 0.2em 0;
+	display: flex;
+	flex-flow: column;
+}
+
+.howManyColors{
+	margin: 1em 0 0.55em 0;
+	letter-spacing: normal;
+	text-transform: none;
+}
+
+.pickGradientMode{
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.buttonTwo{
+	width: 10em;
+	height: 2.5em;
+	margin: 0.3em 0;
+	border-radius: 0.5em;
+	background: linear-gradient(45deg, #B1B1B1 0 50%, #F2F2F2 50% 100%);
+	text-transform: uppercase;
+	font-weight: 900;
+}
+.buttonTwo:hover{
+	background: linear-gradient(45deg, #F2F2F2  0 50%, #B1B1B1 50% 100%);
+	cursor: pointer;
+}
+
+.buttonThree{
+	width: 10em;
+	height: 2.5em;
+	margin: 0.3em 0 0.3em 0;
+	border-radius: 0.5em;
+	background: linear-gradient(45deg, #000000 0 33%, #B1B1B1 33% 67%, #F2F2F2 67% 100%);
+	text-transform: uppercase;
+	font-weight: 900;
+
+}
+.buttonThree:hover{
+	background: linear-gradient(45deg, #B1B1B1 0 33%, #F2F2F2 33% 67%, #000000 67% 100%);
+	cursor: pointer;
+}
+
+/*//////// RIGHT MENU BAR ////////*/
+.defaultMenu2{
+	width: 13em;
+	height: 9em;
+	margin: 1.5em 3em;
+	padding: 1.85em 0;
+	border: 0.2em solid #566054;
+	border-radius: 10em;
+	background: none;
+	box-shadow: 0 0.2em 0.2em 0;
+	display: flex;
+	flex-flow: column;
+}
+
+.whatType{
+	margin: 0 0 0.55em 0;
+	letter-spacing: normal;
+	text-transform: none;
+}
+
+.buttonLinear{
+  width: 10em;
+  height: 2.5em; 
+  margin: 0.3em 0;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 0.8em;
+  box-sizing: border-box;
+}
+.buttonLinear:hover{
+  cursor: pointer;
+  animation: animateLinear 8s linear infinite;
+}
+@keyframes animateLinear
+{
+  0%
+  {
+    background-position: 0%;
+  }
+  100%
+  {
+    background-position: 400%;
+  }
+}
+
+.buttonRadial{
+  width: 5em;
+  height: 5em;
+  margin: 0.8em 0 0 0;
+  border-radius: 5em;
+  background: radial-gradient(circle at center, #03a9f4, #f441a5, #5A2971);
+  background-size: 180%;
+  background-position: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  box-sizing: border-box;
+}
+.buttonRadial:hover{
+  cursor: pointer;
+  animation: animateRadial 2s  infinite;
+}
+@keyframes animateRadial{
+  0% { background-size: 180%;
+    background-position: center;}
+  20% { background-size: 220%;
+    background-position: center;}
+  40% { background-size: 260%;
+    background-position: center;}
+  60% { background-size: 300%;
+    background-position: center;}
+  80% { background-size: 260%;
+    background-position: center;}
+  90% { background-size: 220%;
+    background-position: center;}
+  100% { background-size: 180%;
+    background-position: center;}
+ }
+
+h4{
+	display: flex;
+	justify-content: center;
+}
+
+
+/*//////// SECONDARY ELEMENTS ////////*/
+.colorPickers{
+	width: 24em;
+	height: 13em;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.colorPicker{
+	width: 5em;
+	height: 2.4em;
+	margin: 0 0 0 0.5em;
+	border-radius: 0.5em;
+	box-shadow: 0em 0.1em 0.4em black;
+}
+.colorPicker:hover{
+	cursor: copy;
+}
+
+.randomizer{
+	width: 11em;
+	height: 2.3em;
+	margin: 1em 0 0 0;
+	border-width: 0.2em;
+	border-color: #fff;
+	border-radius: 20% / 60%;
+	background-color: #fff;
+	color: #0A3797;
+	font-weight: 700;
+	font-size: 1.3em;
+	transition: 0.2s;
+	font-family: Monaco;
+	letter-spacing: 0.15em;
+}
+.randomizer:hover{
+	border: none;
+	box-shadow: 0.1em 0.1em 0.7em 0.1em #111827;
+	background-color: #2C4DC4;
+	color: white;
+	cursor: pointer;
+}
+.randomizer:active{
+	border-width: 0.1em;
+	box-shadow: inset 0.0em 0.1em 0.4em black;
+	background-color: #DCDCDD;
+	color: #0A3797;
+	letter-spacing: 0.1em;
+	cursor: pointer;
+}
+
+.hexReferences{
+	width: 50%;
+	display: flex;
+	justify-content: center;
+}
+
+h5{
+	width: 17em;
+	margin: 0 0.5em ;
+	letter-spacing: normal;
+	text-transform: none;
+	font-size: 2.7em;
+	cursor: pointer;
+}
+
+.createPopUpHex{
+	width: 6.5em;
+	height: 2em;
+	margin: 0.5em 15em 0em 0em;
+	padding: 0.3em;
+	border-radius: 0 0.2em 0.2em 0;
+	box-shadow: 0.4em 0.1em 0.1em 0;
+	background: 
+	linear-gradient(90deg, rgba(0,255,11,0), rgba(0,255,11,0.2), rgba(0,255,11,0.4), rgba(0,222,11,1));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1em;
+	font-weight: 800;
+	letter-spacing: 0em;
+	animation-name: move;
+	animation-duration: 1s;
+	animation-delay: 0;
+}
+@keyframes move{
+from{
+50
+}
+to{
+transform: translate(15em);
+}
+}
+
+
+/*//////// RESPONSIVENESS SETTINGS 900p////////*/
+@media (max-width: 940px)  {
+
+html{
+	font-size: 90%;
+}
+
+h1{
+	font-size: 2em;
+}
+
+.colorPickers{
+	width: 17em;
+	margin: 0;
+	padding: 0;
+}
+
+.defaultMenu1{
+	margin: 1em 0;
+}
+
+.defaultMenu2{
+	margin: 1em 0;
+}
+}
+
+/*//////// RESPONSIVENESS SETTINGS 660p////////*/
+@media (max-width: 660px)  {
+
+.defaultMenu1{
+	border-radius: 1em;
+	padding: 1em 0;
+	width: 10em;
+}
+
+.buttonTwo, .buttonThree{
+	width: 9em;
+}
+
+.defaultMenu2{
+	border-radius: 1em;
+	padding: 1em 0;
+	width: 10em;
+}
+
+.colorPickers{
+width: 12em;
+}
+
+.colorPicker{
+	width: 3.5em;
+}
+
+.randomizer{
+	width: 9em;
+}
+}
+
+/*//////// RESPONSIVENESS SETTINGS 480p////////*/
+@media (max-width: 480px)  {
+
+html{
+	font-size: 70%;
+}
+
+h1{
+	font-size: 1.5em;
+}
+
+.buttons{
+	flex-direction: column;
+}
+
+.defaultMenu1{
+	width: 18em;
+	height: 7.3em;
+	margin: 1em 3em 0.2em 3em;
+	padding: 0.05em 0.15em 0 0.15em;
+	border: 0.05em solid #566054;
+	border-radius: 0.3em;
+	box-shadow: 0 0.1em 0.1em 0;
+	display: flex;
+	flex-flow: column;
+}
+
+.buttonTwo{
+	width: 70%;
+	height: 2em;
+	margin: 0.1em 0.1em 0 0.1em;
+	font-weight: 400;
+}
+
+.buttonThree{
+	width: 70%;
+	height: 2em;
+	margin: 0.1em 0.1em 0 0.1em;
+	font-weight: 400;
+}
+
+.defaultMenu2{
+	width: 18em;
+	height: 7.3em;
+	margin: 0.2em 3em 0.2em 3em;
+	padding: 0.15em;
+	border: 0.05em solid #566054;
+	border-radius: 0.3em;
+	box-shadow: 0 0.1em 0.1em 0;
+}
+
+.colorPickers{
+width: 21em;
+}
+
+.colorPicker{
+	width: 5em;
+}
+
+.randomizer{
+	width: 13em;
+}
+
+.pickGradientMode{
+	flex-flow: row;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.whatType{
+	margin: 0.9em 0 0 0;
+}
+
+.buttonLinear{
+  margin: 0 0.5em 0.3em 0.1em;
+  font-size: 1em;
+}
+
+.buttonRadial{
+	margin: 0 0.1em 0.3em 0.5em;
+	border-radius: 10em;
+}
+
+h4{
+	margin: 1em 0 0 0;
+}
+
+h5{
+	font-size: 2.3em;
+}
+}
